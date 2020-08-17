@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.icinbank.details.UpdateDetails;
 import com.icinbank.model.User;
 import com.icinbank.model.UserDisplay;
+import com.icinbank.response.UpdateResponse;
 import com.icinbank.service.ProfileService;
 
 @RestController
@@ -21,7 +22,7 @@ public class ProfileController {
 	private ProfileService pservice;
 	
 	@PutMapping("/profile/update")
-	public User updateUser(@RequestBody UpdateDetails user) {
+	public UpdateResponse updateUser(@RequestBody UpdateDetails user) {
 		// TODO Auto-generated method stub
 		return pservice.updateUser(user);
 	}
