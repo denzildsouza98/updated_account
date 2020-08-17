@@ -29,16 +29,6 @@ public class RegistrationServiceImpl implements RegistrationService{
 		boolean flag = true;
 		String message = "Registration Succesful";
 		
-		if(usernameAlreadyExists(user.getUsername())) {
-			message = "Username already Exists";
-			flag = false;
-		}
-		
-		if(PanAlreadyExists(user.getPan())) {
-			message = "PAn number already Exists";
-			flag = false;
-	}
-		
 		if(EmailAlreadyExists(user.getEmail())) {
 			message = "Email already Exists";
 			flag = false;
@@ -46,6 +36,11 @@ public class RegistrationServiceImpl implements RegistrationService{
 		
 		if(PhoneAlreadyExists(user.getPhone())) {
 			message = "Phone number already Exists";
+			flag = false;
+		}
+		
+		if(usernameAlreadyExists(user.getUsername())) {
+			message = "Username already Exists";
 			flag = false;
 		}
 		
@@ -87,16 +82,16 @@ public class RegistrationServiceImpl implements RegistrationService{
 		return false;
 	}
 	
-	@Override
-	public boolean PanAlreadyExists(String pan) {
-		try {
-			User u=dao.findByPan(pan);
-			System.out.println(u.toString());
-			return true;
-		} catch (Exception e) {
-		}
-		return false;
-	}
+//	@Override
+//	public boolean PanAlreadyExists(String pan) {
+//		try {
+//			User u=dao.findByPan(pan);
+//			System.out.println(u.toString());
+//			return true;
+//		} catch (Exception e) {
+//		}
+//		return false;
+//	}
 	
 	@Override
 	public boolean PhoneAlreadyExists(long l) {

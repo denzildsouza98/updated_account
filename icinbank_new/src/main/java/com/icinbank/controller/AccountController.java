@@ -89,7 +89,7 @@ public class AccountController {
 	
 	@PostMapping("/account/deposit")
 	public DepositResponse deposit(@RequestBody TransactionDetails details) {
-		adao.findByUsername(adao.findByAccno(details.getAccount()).getUsername());
+		//adao.findByUsername(adao.findByAccno(details.getAccount()).getUsername());
 		if(isprimary(details.getAccount())) {
 			return service.deposit(details.getAccount(), details.getAmount());
 		}

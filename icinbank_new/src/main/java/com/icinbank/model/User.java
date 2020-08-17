@@ -1,11 +1,15 @@
 package com.icinbank.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table
@@ -18,10 +22,13 @@ public class User {
 	private String lname;
 	private long phone;
 	private String address;
-	private String pan;
 	private String email;
 	private String username;
 	private String password;
+	 @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	private Date dob;
+	private String type; 
+	private String identity;
 	
 	@Column(columnDefinition = "boolean default false")
 	private boolean status;
@@ -82,11 +89,25 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getPan() {
-		return pan;
+	
+	
+	public Date getDob() {
+		return dob;
 	}
-	public void setPan(String pan) {
-		this.pan = pan;
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getIdentity() {
+		return identity;
+	}
+	public void setIdentity(String identity) {
+		this.identity = identity;
 	}
 	public String getEmail() {
 		return email;
